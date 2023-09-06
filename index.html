@@ -4,13 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Custom stylesheet for the website -->
-    <link rel="stylesheet" href=.assets/style.css/>
+    <link rel="stylesheet" href="./assets/style.css" />
 
     <title>Wedding RSVP</title>
   </head>
   <body>
-    <header>
-      <!--Name of page and countdown to wedding-->
-    </header>
+    <header>Wedding Registration Form</header>
+    <h1>Registration Form</h1>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="attendance">Are you attending?</label>
+
+      <label for="attendance">Yes</label>
+      <input type="radio" id="Yes" name="attendance" value="Yes" required />
+
+      <label for="attendance">No:</label>
+      <input type="radio" id="N" name="attendance" value="No" required />
+
+      <input type="submit" value="Submit" />
+    </form>
+    <script src="./assets/script.js"></script>
   </body>
 </html>
