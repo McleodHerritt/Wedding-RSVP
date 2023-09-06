@@ -9,22 +9,33 @@
     <title>Wedding RSVP</title>
   </head>
   <body>
-    <header>Wedding Registration Form</header>
-    <h1>Registration Form</h1>
-    <form>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
+    <header>
+      <h1>Wedding Registration Form</h1>
+    </header>
+    <main>
+      <h2>Registration Form</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
 
-      <label for="attendance">Are you attending?</label>
+        <label for="attendance">Are you attending?</label>
+        <label for="attendance">Yes</label>
+        <input type="radio" id="Yes" name="attendance" value="Yes" required />
+        <label for="attendance">No:</label>
+        <input type="radio" id="No" name="attendance" value="No" required />
 
-      <label for="attendance">Yes</label>
-      <input type="radio" id="Yes" name="attendance" value="Yes" required />
+        <label for="plusOne">Do you have a guest?</label>
+        <label for="plusOne">Yes</label>
+        <input type="radio" id="Yes" name="plusOne" value="Yes" required />
+        <label for="plusOne">No</label>
+        <input type="radio" id="No" name="plusOne" value="No" required />
 
-      <label for="attendance">No:</label>
-      <input type="radio" id="N" name="attendance" value="No" required />
+        <label for="guestOne">Guest Name:</label>
+        <input type="text" id="guestOne" name="guestOne" required />
 
-      <input type="submit" value="Submit" />
-    </form>
+        <input type="submit" value="Submit" />
+      </form>
+    </main>
     <script src="./assets/script.js"></script>
   </body>
 </html>
