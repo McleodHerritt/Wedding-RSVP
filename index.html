@@ -23,15 +23,33 @@
   
     </header>
     <main class="section is-medium">
+
+        <!-- Container for the registration form -->
+
       <div class="registrationForm">
+
+            <!-- Heading for the form -->
+
         <h2>Attending?</h2>
+
+            <!-- Beginning of the RSVP form -->
+
         <form>
+
+                <!-- Fieldset for collecting attendee's name and attendance status -->
+
           <fieldset>
+                    <!-- Label and input field for attendee's name -->
+
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required />
 
+        <!-- Question asking if the attendee is coming -->
+
             <legend>Are you attending?</legend>
             <div>
+                        <!-- Option for 'Yes' response -->
+
               <label for="Yes">Yes</label>
               <input
                 type="radio"
@@ -40,6 +58,8 @@
                 value="Yes"
                 required
               />
+
+          <!-- Option for 'No' response -->
 
               <label for="No">No:</label>
               <input
@@ -52,9 +72,17 @@
             </div>
           </fieldset>
 
+      <!-- Fieldset for collecting guest information -->
+
           <fieldset>
+
+                    <!-- Question asking if the attendee is bringing a guest -->
+
             <legend>Do you have a guest?</legend>
             <div>
+
+                        <!-- Option for 'Yes' response -->
+
               <label for="plusYes">Yes</label>
               <input
                 type="radio"
@@ -63,6 +91,8 @@
                 value="Yes"
                 required
               />
+
+          <!-- Option for 'No' response -->
 
               <label for="plusNo">No</label>
               <input
@@ -73,6 +103,9 @@
                 required
               />
             </div>
+            
+                    <!-- Label and input field for guest's name -->
+
             <label for="guestOne">Guest Name:</label>
             <input type="text" id="guestOne" name="guestOne" required />
           </fieldset>

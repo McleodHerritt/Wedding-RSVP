@@ -1,5 +1,9 @@
+/* Importing the Lora font from Google Fonts with various weights and styles */
+
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+
 /* Global styles */
+/* Defining custom color variables for consistent theming */
 
 :root {
   --sandy-brown: #fa9f42ff;
@@ -9,10 +13,14 @@
   --cal-poly-green: #254d32ff;
 }
 
+/* Setting global font styles for the body */
+
 body {
   font-family: "Lora", serif;
   font-size: 16px;
 }
+
+/* Styling the header with flexbox and setting its font */
 
 header {
   display: flex;
@@ -22,12 +30,17 @@ header {
   font-style: italic;
 }
 
+/* Styling the title with a double border and custom color */
+
 .title {
   border: 5px solid var(--garnet);
   border-style: double;
   padding: 0.5em;
   color: var(--cal-poly-green);
 }
+
+/* Centering the subtitle text and setting its font */
+
 .subtitle {
   display: flex;
   justify-content: center;
@@ -35,13 +48,19 @@ header {
   font-style: italic;
 }
 
+/* Setting color for h2 elements */
+
 h2 {
   color: var(--cal-poly-green);
 }
 
+/* Setting a maximum width for forms */
+
 form {
   max-width: 28%;
 }
+
+/* Common styles for various elements to center content and set font */
 
 .registrationForm,
 .foodOptions,
@@ -54,9 +73,15 @@ form {
   font-family: "Lora", serif, 700;
   font-style: italic;
 }
+
+/* Setting a background color for fieldsets */
+
 fieldset {
   background-color: var(--sandy-brown);
 }
+
+/* Styling the submit button with custom colors and no border */
+
 .submit {
   background-color: var(--prussian-blue);
   border: none;
@@ -66,33 +91,27 @@ fieldset {
   margin: 5px;
 }
 
+/* Adding a hover effect to the submit button for better user feedback */
+
 .submit:hover {
   background-color: var(--picton-blue);
   transition: background-color 0.3s ease;
 }
 
-
 /* Countdown timer*/
 
-
 .countdown-container {
-
   text-align: center;
-  
 }
 
-
-
-
 #countdown {
-    text-align: center;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-right: -80%;
-    border-radius: 0%;
-    width: auto;
-    padding: 2%;
-  
+  text-align: center;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-right: -80%;
+  border-radius: 0%;
+  width: auto;
+  padding: 2%;
 }
 
 #countdown-timer {
@@ -102,9 +121,7 @@ fieldset {
 }
 
 #wedding-date {
-
   text-align: center;
   margin-top: -1%;
   margin-right: -79.8%;
-
 }
