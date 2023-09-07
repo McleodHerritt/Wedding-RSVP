@@ -37,6 +37,56 @@ function sendDataToEmail() {
   console.log(data.attendance);
   console.log(data.plusOne);
   console.log(data.guestOne);
+
+  const emailContent = `
+    Guest Name: ${data.guestName}
+    Attendance: ${data.attendance}
+    Plus One: ${data.plusOne}
+    Guest One: ${data.guestOne}
+  `;
+  const emailData = {
+    personalizations: [
+      {
+        to: [{ email: "bootcampweddingrsvp@gmail.com" }],
+        subject: "Update from RSVP",
+      },
+    ],
+    from: { email: "bootcampweddingrsvp@gmail.com", name: "RSVP" },
+    content: [
+      {
+        type: "text/plain",
+        value: emailContent,
+      },
+    ],
+  };
+
+  fetch(
+    "https://cors-anywhere.herokuapp.com/https://api.sendgrid.com/v3/mail/send",
+    {
+      method: "POST",
+      headers: {
+        Authorization:
+          "Bearer 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",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(emailData),
+    }
+  )
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Failed to send email");
+      }
+    })
+    .then((data) => {
+      console.log(data);
+      alert("Email sent successfully!");
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("Failed to send email. Please try again.");
+    });
 }
 
 
