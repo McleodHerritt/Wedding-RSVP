@@ -3,3 +3,22 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
+
+.title {
+  display: flex;
+  justify-content: center;
+  border: 5px solid rgb(105, 21, 21);
+  font-family: "Roboto", sans-serif;
+}
+
+.subtitle {
+  display: flex;
+  justify-content: center;
+
+  font-family: "Roboto", sans-serif;
+}
+
+.label {
+  display: flex;
+  justify-content: center;
+}
