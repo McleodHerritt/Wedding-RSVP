@@ -1,18 +1,32 @@
+// Initialize EmailJS with the provided user ID
+
 emailjs.init("P3fVd9p39qC3J3QNg");
 
+// Get the form element from the DOM
+
 var form = document.querySelector("form");
+
+// Add an event listener to the form to handle the submit event
+
 form.addEventListener("submit", submitForm);
+
+// Data object to store the form input values
 
 var data = {
   guestName: "",
   attendance: false,
   plusOne: false,
   guestOne: "",
-  // add additional keys to object to send to email
 };
 
+// Function to handle the form submission
+
 function submitForm(event) {
+  // Prevent the default form submission behavior
+
   event.preventDefault();
+
+  // Get and store the values from the form inputs in the data object
 
   data.guestName = document.getElementById("name").value;
   data.attendance = document.querySelector(
@@ -23,8 +37,11 @@ function submitForm(event) {
 
   data.guestOne = document.getElementById("guestOne").value;
 
-  //   TODO: get additional information before sending to email
+  // Call the function to send the data as an email
+
   sendDataToEmail();
+
+  // Reset the form inputs to their default values after submission
 
   document.getElementById("name").value = "";
   document.querySelector('input[name="attendance"]:checked').checked = false;
@@ -34,11 +51,15 @@ function submitForm(event) {
   ).checked = false;
 }
 
+// Function to send the collected data as an email using EmailJS
+
 function sendDataToEmail() {
   console.log(data.guestName);
   console.log(data.attendance);
   console.log(data.plusOne);
   console.log(data.guestOne);
+
+  // Construct the email content using the collected data
 
   const emailContent = `
     Guest Name: ${data.guestName}
@@ -46,6 +67,9 @@ function sendDataToEmail() {
     Plus One: ${data.plusOne}
     Guest One: ${data.guestOne}
   `;
+
+  // Send the email using EmailJS
+
   emailjs
     .send("service_nqrqqva", "template_7ehj68r", {
       message: emailContent,
