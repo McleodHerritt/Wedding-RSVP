@@ -4,23 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Custom stylesheet for the website -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
-      rel="stylesheet"
-    />
+    
     <link rel="stylesheet" href="./assets/style.css" />
 
     <title>Wedding RSVP</title>
   </head>
   <body>
     <header>
-      <h1 class="title">Wedding Registration Form</h1>
+      <h1 class="title">Wedding RSVP</h1>
     </header>
     <main class="section is-medium">
       <div class="registrationForm">
-        <h2>Registration Form</h2>
+        <h2>Attending?</h2>
         <form>
           <fieldset>
             <label for="name">Name:</label>
@@ -47,6 +42,7 @@
               />
             </div>
           </fieldset>
+
           <fieldset>
             <legend>Do you have a guest?</legend>
             <div>
@@ -71,16 +67,15 @@
             <label for="guestOne">Guest Name:</label>
             <input type="text" id="guestOne" name="guestOne" required />
           </fieldset>
-
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
+        
+      
       <div class="foodOptions">
         <h2>Food Options</h2>
-        <form>
+        
           <fieldset>
             <legend>Do you have food allergies?</legend>
             <div>
+              <label for="deathlyYes">Yes</label>
               <input
                 type="radio"
                 id="deathlyYes"
@@ -88,21 +83,25 @@
                 value="deathlyYes"
                 required
               />
-              <label for="deathlyYes">Yes</label>
-
+              
+              <label for="thankfullyNo">No</label>
               <input
                 type="radio"
                 id="thankfullyNo"
                 name="allergies"
                 value="thankfullyNo"
                 required
-              />
-              <label for="thankfullyNo">No</label>
+                />
+               
+              
+              <input type="text" id="deathlyYes" name="deathlyYes" required />
+              
             </div>
           </fieldset>
-        </form>
+    
+       
 
-        <form>
+       
           <fieldset>
             <legend>Select a food option</legend>
             <div>
@@ -126,16 +125,22 @@
 
               <input
                 type="radio"
-                id="vegetarianLasagna"
+                id="vegetarian"
                 name="selectedFood"
-                value="vegetarianLasagna"
+                value="vegetarian"
                 required
               />
-              <label for="vegetarianLasagna">Vegetarian Lasagna</label>
+              <label for="vegetarian">Vegetarian Lasagna</label>
             </div>
           </fieldset>
-        </form>
-      </div>
+        
+
+          
+     
+      
+        <button class="submit" type="submit">Submit</button>
+       
+      </form>
 
       <div class="box">
         <article class="media">
