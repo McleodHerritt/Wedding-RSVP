@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Custom stylesheet for the website -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"
     />
     <link rel="stylesheet" href="./assets/style.css" />
 
@@ -14,8 +16,13 @@
   </head>
   <body>
     <header>
-      <h1>Wedding Registration Form</h1>
+      <h1 class="title">Wedding Registration Form</h1>
     </header>
+    <main class="section is-medium">
+      <h2 class="subtitle">Registration Form</h2>
+      <form class="field">
+        <label class="label" for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
     <main>
       <div class="registrationForm">
         <h2>Registration Form</h2>
