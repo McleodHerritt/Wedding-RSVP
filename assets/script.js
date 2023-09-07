@@ -106,4 +106,50 @@ const countdownInterval = setInterval(function () {
   }
 }, 1000);
 
-//
+
+//local storage for issue #7
+
+//Attendance 
+
+localStorage.setItem('attendance', "true");
+
+
+const btnYes = document.getElementById('yes');
+
+const attendanceString = localStorage.getItem('attendance');
+
+const attendance = attendanceString === "true"; 
+
+btnYes.textContent = attendance ? "true" : "false";
+
+
+btnYes.addEventListener('click', function() {
+  attendance = !attendance;
+
+  btnYes.textContent = attendance ? "true" : "false";
+
+  localStorage.setItem("attendance", attendance.toString());
+  console.log();
+});
+
+
+//previous code still being used
+
+// if (attendanceString === "true") {
+//   btnYes.textContent = "true";
+// } else {
+//   btnYes = "false";
+// }
+
+
+// btnYes.addEventListener("click", () => {
+//   if (btnYes.textContent === "true") {
+//     btnYes.textContent = "false";
+//     localStorage.setItem("attendance", "false")
+//   } else {
+//     btnYes.textContent = "true";
+//     localStorage.setItem("attendance", "true")
+//   }
+// });
+
+
