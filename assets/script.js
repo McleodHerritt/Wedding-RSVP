@@ -67,50 +67,19 @@ const countdownInterval = setInterval(function() {
 
 //local storage for issue #7
 
-//Attendance 
+document.addEventListener('DOMContentLoaded', function() {
+  const btnYes = document.getElementById('yes');
 
-// localStorage.setItem('attendance', )
-
-
-
-
-localStorage.setItem('attendance', "true");
-
-
-const btnYes = document.getElementById('yes');
-
-const attendanceString = localStorage.getItem('attendance');
-
-const attendance = attendanceString === "true"; 
-
-btnYes.textContent = attendance ? "true" : "false";
-
-
-btnYes.addEventListener('click', function() {
-  attendance = !attendance;
+  const attendanceString = localStorage.getItem('attendance');
+  let attendance = attendanceString === "true";
 
   btnYes.textContent = attendance ? "true" : "false";
 
-  localStorage.setItem("attendance", attendance.toString());
-  console.log();
+  btnYes.addEventListener('click', function () {
+    attendance = !attendance; 
+    btnYes.textContent = attendance ? "true" : "false";
+
+    localStorage.setItem("attendance", attendance.toString());
+  });
 });
-
-
-
-// if (attendanceString === "true") {
-//   btnYes.textContent = "true";
-// } else {
-//   btnYes = "false";
-// }
-
-
-// btnYes.addEventListener("click", () => {
-//   if (btnYes.textContent === "true") {
-//     btnYes.textContent = "false";
-//     localStorage.setItem("attendance", "false")
-//   } else {
-//     btnYes.textContent = "true";
-//     localStorage.setItem("attendance", "true")
-//   }
-// });
 
