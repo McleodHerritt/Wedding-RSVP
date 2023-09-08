@@ -82,6 +82,17 @@ function sendDataToEmail() {
     });
 }
 
+// TODO: add functionality for the food allergy display.
+let allergyRadioBtn = document.getElementsByName("allergies");
+let allergenInfoEl = document.getElementById("allergenInfo");
+
+function allergyWarning() {
+  if(allergyRadioBtn[0].checked) {
+    allergenInfoEl.textContent = "Warning, the Vegetarian Lasagna contains healthy stuff that you're probably alergic to.";
+  } else if (allergyRadioBtn[1].checked) {
+    allergenInfoEl.textContent = "";
+  }
+}
 //Countdown
 
 const targetDate = new Date("2024-05-03T23:00:00").getTime();

@@ -51,24 +51,12 @@
                         <!-- Option for 'Yes' response -->
 
               <label for="Yes">Yes</label>
-              <input
-                type="radio"
-                id="Yes"
-                name="attendance"
-                value="Yes"
-                required
-              />
+              <input type="radio" id="Yes" name="attendance" value="Yes" required />
 
           <!-- Option for 'No' response -->
 
               <label for="No">No:</label>
-              <input
-                type="radio"
-                id="No"
-                name="attendance"
-                value="No"
-                required
-              />
+              <input type="radio" id="No" name="attendance" value="No" required />
             </div>
           </fieldset>
 
@@ -84,24 +72,12 @@
                         <!-- Option for 'Yes' response -->
 
               <label for="plusYes">Yes</label>
-              <input
-                type="radio"
-                id="plusYes"
-                name="plusOne"
-                value="Yes"
-                required
-              />
+              <input type="radio" id="plusYes" name="plusOne" value="plusYes" required />
 
           <!-- Option for 'No' response -->
 
               <label for="plusNo">No</label>
-              <input
-                type="radio"
-                id="plusNo"
-                name="plusOne"
-                value="No"
-                required
-              />
+              <input type="radio" id="plusNo" name="plusOne" value="plusNo" required />
             </div>
             
                     <!-- Label and input field for guest's name -->
@@ -111,79 +87,43 @@
           </fieldset>
         
       
-      <div class="foodOptions">
-        <h2>Food Options</h2>
+          <div class="foodOptions">
+            <h2>Food Options</h2>
+            
+              <fieldset>
+                <legend>Do you have food allergies?</legend>
+                <div>
+                  <label for="deathlyYes">Yes</label>
+                  <input type="radio" id="deathlyYes" name="allergies" value="deathlyYes" required />
+                  
+                  <label for="thankfullyNo">No</label>
+                  <input type="radio" id="thankfullyNo" name="allergies" value="thankfullyNo" required />
+                  
+                  <p id="allergenInfo"></p>
+                  
+                </div>
+              </fieldset>
         
-          <fieldset>
-            <legend>Do you have food allergies?</legend>
-            <div>
-              <label for="deathlyYes">Yes</label>
-              <input
-                type="radio"
-                id="deathlyYes"
-                name="allergies"
-                value="deathlyYes"
-                required
-              />
-              
-              <label for="thankfullyNo">No</label>
-              <input
-                type="radio"
-                id="thankfullyNo"
-                name="allergies"
-                value="thankfullyNo"
-                required
-                />
-               
-              
-              <input type="text" id="deathlyYes" name="deathlyYes" required />
-              
-            </div>
-          </fieldset>
-    
-       
+              <fieldset>
+                <legend>Select a food option</legend>
+                <div>
+                  <input type="radio" id="chicken" name="selectedFood" value="chicken" required />
+                  <label for="chicken">Chicken</label>
 
-       
-          <fieldset>
-            <legend>Select a food option</legend>
-            <div>
-              <input
-                type="radio"
-                id="chicken"
-                name="selectedFood"
-                value="chicken"
-                required
-              />
-              <label for="chicken">Chicken</label>
+                  <input type="radio" id="beef" name="selectedFood" value="beef" required />
+                  <label for="beef">Beef</label>
 
-              <input
-                type="radio"
-                id="beef"
-                name="selectedFood"
-                value="beef"
-                required
-              />
-              <label for="beef">Beef</label>
-
-              <input
-                type="radio"
-                id="vegetarian"
-                name="selectedFood"
-                value="vegetarian"
-                required
-              />
-              <label for="vegetarian">Vegetarian Lasagna</label>
-            </div>
-          </fieldset>
-        
+                  <input type="radio" id="vegetarian" name="selectedFood" value="vegetarian" required />
+                  <label for="vegetarian">Vegetarian Lasagna</label>
+                </div>
+              </fieldset>
+          </div>
 
           
-     
-      
-        <button class="submit" type="submit">Submit</button>
+          <button class="submit" type="submit">Submit</button>
        
-      </form>
-
+        </form>
+      </div>
       <div class="box">
         <article class="media">
           <figure class="media-left">
