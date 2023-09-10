@@ -109,19 +109,13 @@ const countdownInterval = setInterval(function () {
 
 //local storage for issue #7
 
-document.addEventListener('DOMContentLoaded', function() {
-  const btnYes = document.getElementById('yes');
-
-  const attendanceString = localStorage.getItem('attendance');
-  let attendance = attendanceString === "true";
-
-  btnYes.textContent = attendance ? "true" : "false";
-
-  btnYes.addEventListener('click', function () {
-    attendance = !attendance; 
-    btnYes.textContent = attendance ? "true" : "false";
-
-    localStorage.setItem("attendance", attendance.toString());
-  });
+$('input[type="radio"]').change(function() {
+  const selectedAttendance = $('input[name="attendance"]:checked').val();
+  localStorage.setItem("attendance", selectedAttendance);
 });
+
+const savedAttendance = localStorage.getItem("attendance");
+if (savedAttendance) {
+  $(`input[value="${savedAttendance}"]`).prop("checked", true);
+}
 
