@@ -17,6 +17,9 @@ var data = {
   attendance: false,
   plusOne: false,
   guestOne: "",
+  foodAllergy: false,
+  typeOfAllergy: "",
+  foodOption: "",
 };
 
 // Function to handle the form submission
@@ -37,6 +40,16 @@ function submitForm(event) {
 
   data.guestOne = document.getElementById("guestOne").value;
 
+  data.foodAllergy = document.querySelector(
+    'input[name="allergies"]:checked'
+  ).value;
+
+  data.foodOption = document.querySelector(
+    'input[name="selectedFood"]:checked'
+  ).value;
+
+  data.typeOfAllergy = document.getElementById("allergyType").value;
+
   // Call the function to send the data as an email
 
   sendDataToEmail();
@@ -49,15 +62,16 @@ function submitForm(event) {
   data.guestOne = document.querySelector(
     'input[name="plusOne"]:checked'
   ).checked = false;
+  data.foodAllergy = document.querySelector(
+    'input[name="allergies"]:checked'
+  ).checked = false;
+  data.typeOfAllergy = document.getElementById("allergyType").value = "";
 }
 
 // Function to send the collected data as an email using EmailJS
 
 function sendDataToEmail() {
-  console.log(data.guestName);
-  console.log(data.attendance);
-  console.log(data.plusOne);
-  console.log(data.guestOne);
+  console.log(data);
 
   // Construct the email content using the collected data
 
@@ -87,8 +101,9 @@ let allergyRadioBtn = document.getElementsByName("allergies");
 let allergenInfoEl = document.getElementById("allergenInfo");
 
 function allergyWarning() {
-  if(allergyRadioBtn[0].checked) {
-    allergenInfoEl.textContent = "Warning, the Vegetarian Lasagna contains healthy stuff that you're probably alergic to.";
+  if (allergyRadioBtn[0].checked) {
+    allergenInfoEl.textContent =
+      "Warning, the Vegetarian Lasagna contains healthy stuff that you're probably alergic to.";
   } else if (allergyRadioBtn[1].checked) {
     allergenInfoEl.textContent = "";
   }
@@ -117,22 +132,20 @@ const countdownInterval = setInterval(function () {
   }
 }, 1000);
 
-
 //local storage for issue #7
 
-document.addEventListener('DOMContentLoaded', function() {
-  const btnYes = document.getElementById('yes');
+document.addEventListener("DOMContentLoaded", function () {
+  const btnYes = document.getElementById("yes");
 
-  const attendanceString = localStorage.getItem('attendance');
+  const attendanceString = localStorage.getItem("attendance");
   let attendance = attendanceString === "true";
 
   btnYes.textContent = attendance ? "true" : "false";
 
-  btnYes.addEventListener('click', function () {
-    attendance = !attendance; 
+  btnYes.addEventListener("click", function () {
+    attendance = !attendance;
     btnYes.textContent = attendance ? "true" : "false";
 
     localStorage.setItem("attendance", attendance.toString());
   });
 });
-
