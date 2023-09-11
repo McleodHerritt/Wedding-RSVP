@@ -132,7 +132,7 @@ const countdownInterval = setInterval(function () {
   }
 }, 1000);
 
-//local storage for issue #7
+
 
 
 
@@ -182,8 +182,7 @@ if (savedGuest) {
   $(`input[value="${savedGuest}"]`).prop("checked", true);
 }
 
-//name
-
+//guest name
 
 $(document).ready(function () {
   var guestName = localStorage.getItem('guestName'); 
@@ -199,3 +198,49 @@ $(document).ready(function () {
     }
   });
 });
+
+
+//do you have food allergies? 
+
+//radio buttons yes/no 
+
+$('input[type="radio"]').change(function() {
+  const allergyType = $('input[name="allergies"]:checked').val();
+  localStorage.setItem("allergies", allergyType);
+});
+
+const allergySave = localStorage.getItem("allergies");
+if (allergySave) {
+  $(`input[value="${allergySave}"]`).prop("checked", true);
+}
+
+
+
+//allergy specification 
+
+$(document).ready(function () {
+  var allergySpec= localStorage.getItem('allergyType'); 
+  if (allergySpec) {
+    $('#allergyType').val(allergySpec); 
+  }
+
+  $('#allergyType').on('input', function() {  
+    var name = $(this).val(); 
+
+    if (name.trim() !== '') {
+      localStorage.setItem('allergyType', name); 
+    }
+  });
+});
+
+//food option 
+
+$('input[type="radio"]').change(function() {
+  const foodSelection = $('input[name="selectedFood"]:checked').val();
+  localStorage.setItem("allergies", foodSelection);
+});
+
+const foodSave = localStorage.getItem("foodItem");
+if (foodSave) {
+  $(`input[value="${foodSave}"]`).prop("checked", true);
+}
