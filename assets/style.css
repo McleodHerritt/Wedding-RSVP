@@ -91,6 +91,10 @@ fieldset {
   margin: 5px;
 }
 
+#allergyType {
+  display: none;
+}
+
 /* Adding a hover effect to the submit button for better user feedback */
 
 .submit:hover {
