@@ -83,6 +83,8 @@ function sendDataToEmail() {
     Attendance: ${data.attendance}
     Plus One: ${data.plusOne}
     Guest One: ${data.guestOne}
+    Food Allergy: ${data.typeOfAllergy}
+    Food Option: ${data.foodOption}
   `;
 
   // Send the email using EmailJS
@@ -99,7 +101,7 @@ function sendDataToEmail() {
     });
 }
 
-// TODO: add functionality for the food allergy display.
+// Functionality for the food allergy display.
 let allergyRadioBtn = document.getElementsByName("allergies");
 let allergenInfoEl = document.getElementById("allergenInfo");
 let allergyTypeEl = document.getElementById("allergyType");
@@ -123,7 +125,7 @@ function allergyWarning(event) {
 for (let i = 0; i < allergyRadioBtn.length; i++) {
   allergyRadioBtn[i].addEventListener("change", allergyWarning);
 }
-// TODO: add functionality of food selection.
+// Functionality for the food selection.
 
 function foodSelection(event) {
   event.preventDefault();
