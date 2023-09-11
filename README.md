@@ -6,7 +6,7 @@ A wedding RSVP form that my potential guests can accept or decline the invitatio
 
 # Screenshot
 
-![ScreenShot]()
+![ScreenShot](./assets/WeddingRSVP%20Pic.png)
 
 # User Story
 

@@ -3,40 +3,53 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
 /* Global styles */
+/* Resetting default margin and padding for all elements */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 /* Defining custom color variables for consistent theming */
 
 :root {
-  --sandy-brown: #fa9f42ff;
-  --prussian-blue: #173753ff;
-  --garnet: #754043ff;
-  --picton-blue: #3fa7d6ff;
-  --cal-poly-green: #254d32ff;
+  --rose-quartz: hsla(261, 9%, 69%, 1);
+  --outer-space: hsla(184, 9%, 32%, 1);
+  --burgundy: hsla(353, 73%, 26%, 1);
+  --accent: var(--rose-quartz);
 }
 
-/* Setting global font styles for the body */
+/* Setting global font and background styles for the body */
 
 body {
   font-family: "Lora", serif;
-  font-size: 16px;
+  background-image: url(./wedding\ rsvp\ background\ img.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(3px) sepia(0.5) grayscale(0.8) contrast(0.5)
+    saturate(0.9);
+  height: 100vh;
 }
 
-/* Styling the header with flexbox and setting its font */
+/* Styling the header with flexbox, setting its font and background color */
 
 header {
   display: flex;
-  justify-content: center;
-
+  flex-direction: row;
+  justify-content: space-between;
   font-family: "Lora", serif;
   font-style: italic;
+  background-color: var(--accent);
 }
 
-/* Styling the title with a double border and custom color */
+/* Styling the title with padding, alignment, color, and shadow */
 
 .title {
-  border: 5px solid var(--garnet);
-  border-style: double;
   padding: 0.5em;
-  color: var(--cal-poly-green);
+  align-self: center;
+  color: white;
+  text-shadow: 2px 2px 4px black;
 }
 
 /* Centering the subtitle text and setting its font */
@@ -48,16 +61,37 @@ header {
   font-style: italic;
 }
 
-/* Setting color for h2 elements */
+/* Setting color and shadow for h2 elements */
 
 h2 {
-  color: var(--cal-poly-green);
+  color: white;
+  text-shadow: 2px 2px 4px black;
 }
 
-/* Setting a maximum width for forms */
+/* Styling the form container with flexbox */
+
+.formContainer {
+  display: flex;
+  align-content: space-around;
+}
+
+.formContainer > div {
+  margin: 1em;
+}
+
+/* Styling the form with flexbox */
 
 form {
-  max-width: 28%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Setting margin and padding for elements inside fieldset */
+
+fieldset > * {
+  margin-bottom: 1em;
+  padding: 0.25em;
 }
 
 /* Common styles for various elements to center content and set font */
@@ -74,21 +108,45 @@ form {
   font-style: italic;
 }
 
-/* Setting a background color for fieldsets */
+/* Overriding margin for .box */
 
-fieldset {
-  background-color: var(--sandy-brown);
+.box {
+  margin: 0;
 }
 
-/* Styling the submit button with custom colors and no border */
+/* Adjusting direction and margin for .registrationForm */
+
+.registrationForm {
+  margin: 1em;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* Styling fieldsets with background color and shadow */
+
+fieldset {
+  background-color: var(--accent);
+  box-shadow: 0.25em 0.25em 10px black;
+}
+
+/* Styling legends with position and color */
+
+legend {
+  position: relative;
+  top: 10px;
+  color: var(--outer-space);
+}
+
+/* Styling the submit button with custom colors, padding, and border */
 
 .submit {
-  background-color: var(--prussian-blue);
+  background-color: var(--rose-quartz);
   border: none;
   color: white;
   border-radius: 5px;
   padding: 5px 10px;
   margin: 5px;
+  max-width: fit-content;
 }
 
 #allergyType {
@@ -98,7 +156,7 @@ fieldset {
 /* Adding a hover effect to the submit button for better user feedback */
 
 .submit:hover {
-  background-color: var(--picton-blue);
+  background-color: var(--burgundy);
   transition: background-color 0.3s ease;
 }
 
@@ -106,26 +164,20 @@ fieldset {
 
 .countdown-container {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 1em;
+  align-self: center;
 }
 
-#countdown {
-  text-align: center;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-right: -80%;
-  border-radius: 0%;
-  width: auto;
-  padding: 2%;
+.countdown-container > * {
+  margin: 0;
 }
 
-#countdown-timer {
-  text-align: center;
-  margin-top: 0.5%;
-  margin-right: -79.8%;
-}
+/* Setting color and font-size for .media-content */
 
-#wedding-date {
-  text-align: center;
-  margin-top: -1%;
-  margin-right: -79.8%;
+.media-content {
+  color: white;
+  font-size: 700;
 }

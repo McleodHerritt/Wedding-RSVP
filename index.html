@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/style.css" />
 
     <title>Wedding RSVP</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <header>
@@ -16,8 +17,8 @@
       <!--Countdown container-->
 
       <div class="countdown-container">
-        <h4 id="countdown">The countdown is on!</h4>
-        <h5 id="wedding-date">May 3rd, 2024</h5>
+        <h2 id="countdown">The countdown is on!</h2>
+        <p id="wedding-date">May 3rd, 2024</p>
         <p id="countdown-timer"></p>
       </div>
     </header>
@@ -25,155 +26,156 @@
       <!-- Container for the registration form -->
 
       <div class="registrationForm">
-        <!-- Heading for the form -->
-
-        <h2>Attending?</h2>
-
         <!-- Beginning of the RSVP form -->
 
         <form>
           <!-- Fieldset for collecting attendee's name and attendance status -->
+          <div class="formContainer">
+            <div class="guestAttending">
+              <!--Attending and guest form-->
 
-          <fieldset>
-            <!-- Label and input field for attendee's name -->
+              <!-- Heading for the form -->
+              <h2>Attending?</h2>
 
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required />
+              <fieldset>
+                <!-- Label and input field for attendee's name -->
 
-            <!-- Question asking if the attendee is coming -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
 
-            <legend>Are you attending?</legend>
-            <div>
-              <!-- Option for 'Yes' response -->
+                <!-- Question asking if the attendee is coming -->
 
-              <label for="Yes">Yes</label>
-              <input
-                type="radio"
-                id="Yes"
-                name="attendance"
-                value="Yes"
-                required
-              />
+                <legend>Are you attending?</legend>
+                <div>
+                  <!-- Option for 'Yes' response -->
 
-              <!-- Option for 'No' response -->
+                  <label for="Yes">Yes</label>
+                  <input
+                    type="radio"
+                    id="Yes"
+                    name="attendance"
+                    value="Yes"
+                    required
+                  />
 
-              <label for="No">No:</label>
-              <input
-                type="radio"
-                id="No"
-                name="attendance"
-                value="No"
-                required
-              />
+                  <!-- Option for 'No' response -->
+
+                  <label for="No">No:</label>
+                  <input
+                    type="radio"
+                    id="No"
+                    name="attendance"
+                    value="No"
+                    required
+                  />
+                </div>
+              </fieldset>
+              <!-- Fieldset for collecting guest information -->
+
+              <fieldset>
+                <!-- Question asking if the attendee is bringing a guest -->
+
+                <legend>Do you have a guest?</legend>
+                <div>
+                  <!-- Option for 'Yes' response -->
+
+                  <label for="plusYes">Yes</label>
+                  <input
+                    type="radio"
+                    id="plusYes"
+                    name="plusOne"
+                    value="plusYes"
+                    required
+                  />
+
+                  <!-- Option for 'No' response -->
+                  <label for="plusNo">No</label>
+                  <input
+                    type="radio"
+                    id="plusNo"
+                    name="plusOne"
+                    value="plusNo"
+                    required
+                  />
+                </div>
+
+                <!-- Label and input field for guest's name -->
+                <div id="guestNameContainer">
+                  <label for="guestOne">Guest Name:</label>
+                  <input type="text" id="guestOne" name="guestOne" required />
+                </div>
+              </fieldset>
             </div>
-          </fieldset>
 
-          <!-- Fieldset for collecting guest information -->
-
-          <fieldset>
-            <!-- Question asking if the attendee is bringing a guest -->
-
-            <legend>Do you have a guest?</legend>
-            <div>
-              <!-- Option for 'Yes' response -->
-
-              <label for="plusYes">Yes</label>
-              <input
-                type="radio"
-                id="plusYes"
-                name="plusOne"
-                value="plusYes"
-                required
-              />
-
-              <!-- Option for 'No' response -->
-
-              <label for="plusNo">No</label>
-              <input
-                type="radio"
-                id="plusNo"
-                name="plusOne"
-                value="plusNo"
-                required
-              />
-            </div>
-
-            <!-- Label and input field for guest's name -->
-
-            <label for="guestOne">Guest Name:</label>
-            <input type="text" id="guestOne" name="guestOne" required />
-          </fieldset>
-
-          <div class="foodOptions">
-            <h2>Food Options</h2>
-
-            <fieldset>
-              <legend>Do you have food allergies?</legend>
-              <div>
-                <label for="deathlyYes">Yes
+            <div class="foodOptions">
+              <h2>Food Options</h2>
+              <fieldset>
+                <legend>Do you have food allergies?</legend>
+                <div>
+                  <label for="deathlyYes">Yes
+                    <input
+                      type="radio"
+                      id="deathlyYes"
+                      name="allergies"
+                      value="deathlyYes"
+                      required
+                    />
+                  </label>
+                  <label for="thankfullyNo">No
+                    <input
+                      type="radio"
+                      id="thankfullyNo"
+                      name="allergies"
+                      value="thankfullyNo"
+                      required
+                    />
+                  </label>
                   <input
-                    type="radio"
-                    id="deathlyYes"
-                    name="allergies"
-                    value="deathlyYes"
+                    type="text"
+                    id="allergyType"
+                    name="allergyType"
                     required
                   />
-                </label>
-                <label for="thankfullyNo">No
-                  <input
-                    type="radio"
-                    id="thankfullyNo"
-                    name="allergies"
-                    value="thankfullyNo"
-                    required
-                  />
-                </label>
-                <input
-                  type="text"
-                  id="allergyType"
-                  name="allergyType"
-                  required
-                />
 
-                <p id="allergenInfo"></p>
-              </div>
-            </fieldset>
+                  <p id="allergenInfo"></p>
+                </div>
+              </fieldset>
 
-            <fieldset>
-              <legend>Select a food option</legend>
-              <div>
-                <label for="chicken">Chicken
-                  <input
-                    type="radio"
-                    id="chicken"
-                    name="selectedFood"
-                    value="chicken"
-                    required
-                  />
-                </label>
+              <fieldset>
+                <legend>Select a food option</legend>
+                <div>
+                  <label for="chicken">Chicken
+                    <input
+                      type="radio"
+                      id="chicken"
+                      name="selectedFood"
+                      value="chicken"
+                      required
+                    />
+                  </label>
 
-                <label for="beef">Beef
-                  <input
-                    type="radio"
-                    id="beef"
-                    name="selectedFood"
-                    value="beef"
-                    required
-                  />
-                </label>
+                  <label for="beef">Beef
+                    <input
+                      type="radio"
+                      id="beef"
+                      name="selectedFood"
+                      value="beef"
+                      required
+                    />
+                  </label>
 
-                <label for="vegetarian">Vegetarian Lasagna
-                  <input
-                    type="radio"
-                    id="vegetarian"
-                    name="selectedFood"
-                    value="vegetarian"
-                    required
-                  />
-                </label>
-                <p id="foodChoice"></p>
-              </div>
-            </fieldset>
+                  <label for="vegetarian">Vegetarian Lasagna
+                    <input
+                      type="radio"
+                      id="vegetarian"
+                      name="selectedFood"
+                      value="vegetarian"
+                      required
+                    />
+                  </label>
+                  <p id="foodChoice"></p>
+                </div>
+              </fieldset>
           </div>
 
           <button class="submit" type="submit">Submit</button>
@@ -182,7 +184,7 @@
       <div class="box">
         <article class="media">
           <figure class="media-left">
-            <img src="https://clipart-library.com/images/pc5o8Ae9i.png" />
+            <!-- <img src="https://clipart-library.com/images/pc5o8Ae9i.png" /> -->
           </figure>
 
           <div class="media-content">
