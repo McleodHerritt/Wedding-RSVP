@@ -157,8 +157,6 @@ $(document).ready(function () {
 
 
 
-
-
 //Yes/No radio buttons
 $('input[type="radio"]').change(function() {
   const selectedAttendance = $('input[name="attendance"]:checked').val();
@@ -184,28 +182,20 @@ if (savedGuest) {
   $(`input[value="${savedGuest}"]`).prop("checked", true);
 }
 
+//name
 
 
+$(document).ready(function () {
+  var guestName = localStorage.getItem('guestName'); 
+  if (guestName) {
+    $('#guestOne').val(guestName); 
+  }
 
+  $('#guestOne').on('input', function() {  
+    var name = $(this).val(); 
 
-
-
-
-
-
-=======
-document.addEventListener("DOMContentLoaded", function () {
-  const btnYes = document.getElementById("yes");
-
-  const attendanceString = localStorage.getItem("attendance");
-  let attendance = attendanceString === "true";
-
-  btnYes.textContent = attendance ? "true" : "false";
-
-  btnYes.addEventListener("click", function () {
-    attendance = !attendance;
-    btnYes.textContent = attendance ? "true" : "false";
-
-    localStorage.setItem("attendance", attendance.toString());
+    if (name.trim() !== '') {
+      localStorage.setItem('guestName', name); 
+    }
   });
 });
