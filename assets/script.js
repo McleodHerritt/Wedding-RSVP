@@ -66,6 +66,9 @@ function submitForm(event) {
     'input[name="allergies"]:checked'
   ).checked = false;
   data.typeOfAllergy = document.getElementById("allergyType").value = "";
+  data.foodOption = document.querySelector(
+    'input[name="selectedFood"]:checked'
+  ).checked = false;
 }
 
 // Function to send the collected data as an email using EmailJS
@@ -132,33 +135,46 @@ const countdownInterval = setInterval(function () {
   }
 }, 1000);
 
+//are you attending?
 
-
-
-
-//are you attending? 
-
-//Name input field 
+//Name input field
 
 $(document).ready(function () {
-  var savedName = localStorage.getItem('userName'); //checking for name in local storage
+  var savedName = localStorage.getItem("userName"); //checking for name in local storage
   if (savedName) {
-    $('#name').val(savedName); //name is found from local storage and displayed in the field 
+    $("#name").val(savedName); //name is found from local storage and displayed in the field
   }
 
-  $('#name').on('input', function() {  //event handler for "name" field
+  $("#name").on("input", function () {
+    //event handler for "name" field
     var name = $(this).val(); //get the name from the input field
 
-    if (name.trim() !== '') {
-      localStorage.setItem('userName', name); //save the name to local storage
+    if (name.trim() !== "") {
+      localStorage.setItem("userName", name); //save the name to local storage
     }
+  });
+
+  //only show the box if it is selected
+  $("#thankfullyNo").change(function () {
+    $("#allergyContainer").hide();
+  });
+
+  $("#deathlyYes").change(function () {
+    $("#allergyContainer").show();
+  });
+
+  //only show the the guest name container if user selected they are bringing a guest
+  $("#plusNo").change(function () {
+    $("#guestNameContainer").hide();
+  });
+
+  $("#plusYes").change(function () {
+    $("#guestNameContainer").show();
   });
 });
 
-
-
 //Yes/No radio buttons
-$('input[type="radio"]').change(function() {
+$('input[type="radio"]').change(function () {
   const selectedAttendance = $('input[name="attendance"]:checked').val();
   localStorage.setItem("attendance", selectedAttendance);
 });
@@ -168,11 +184,10 @@ if (savedAttendance) {
   $(`input[value="${savedAttendance}"]`).prop("checked", true);
 }
 
-//Do you have a guest? 
-
+//Do you have a guest?
 
 //Yes/No radio buttons
-$('input[type="radio"]').change(function() {
+$('input[type="radio"]').change(function () {
   const selectedGuest = $('input[name="plusOne"]:checked').val();
   localStorage.setItem("plusOne", selectedGuest);
 });
@@ -180,31 +195,36 @@ $('input[type="radio"]').change(function() {
 const savedGuest = localStorage.getItem("plusOne");
 if (savedGuest) {
   $(`input[value="${savedGuest}"]`).prop("checked", true);
+  $("#guestNameContainer").show();
 }
 
 //guest name
 
 $(document).ready(function () {
-  var guestName = localStorage.getItem('guestName'); 
+  var guestName = localStorage.getItem("guestName");
   if (guestName) {
-    $('#guestOne').val(guestName); 
+    $("#guestOne").val(guestName);
+    $("#guestNameContainer").show();
+    $('input[name="plusOne"]:checked').checked = true;
+  } else {
+    $("#guestNameContainer").hide();
+    $('input[name="plusOne"]:checked').checked = false;
   }
 
-  $('#guestOne').on('input', function() {  
-    var name = $(this).val(); 
+  $("#guestOne").on("input", function () {
+    var name = $(this).val();
 
-    if (name.trim() !== '') {
-      localStorage.setItem('guestName', name); 
+    if (name.trim() !== "") {
+      localStorage.setItem("guestName", name);
     }
   });
 });
 
+//do you have food allergies?
 
-//do you have food allergies? 
+//radio buttons yes/no
 
-//radio buttons yes/no 
-
-$('input[type="radio"]').change(function() {
+$('input[type="radio"]').change(function () {
   const allergyType = $('input[name="allergies"]:checked').val();
   localStorage.setItem("allergies", allergyType);
 });
@@ -214,28 +234,26 @@ if (allergySave) {
   $(`input[value="${allergySave}"]`).prop("checked", true);
 }
 
-
-
-//allergy specification 
+//allergy specification
 
 $(document).ready(function () {
-  var allergySpec= localStorage.getItem('allergyType'); 
+  var allergySpec = localStorage.getItem("allergyType");
   if (allergySpec) {
-    $('#allergyType').val(allergySpec); 
+    $("#allergyType").val(allergySpec);
   }
 
-  $('#allergyType').on('input', function() {  
-    var name = $(this).val(); 
+  $("#allergyType").on("input", function () {
+    var name = $(this).val();
 
-    if (name.trim() !== '') {
-      localStorage.setItem('allergyType', name); 
+    if (name.trim() !== "") {
+      localStorage.setItem("allergyType", name);
     }
   });
 });
 
-//food option 
+//food option
 
-$('input[type="radio"]').change(function() {
+$('input[type="radio"]').change(function () {
   const foodSelection = $('input[name="selectedFood"]:checked').val();
   localStorage.setItem("allergies", foodSelection);
 });
