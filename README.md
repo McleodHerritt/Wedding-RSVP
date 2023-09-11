@@ -1,6 +1,15 @@
-# wedding-rsvp
- 
+# Wedding-RSVP
+
+# Description
+
+A wedding RSVP form that my potential guests can accept or decline the invitation, add a plus one, make a choice for the food order, and if any food allergies. It will also show the weather for the wedding day, and a countdown for it.
+
+# Screenshot
+
+![ScreenShot]()
+
 # User Story
+
 As a Bride/Groom.
 I want my guest to accept or decline the RSVP
 So that I can provide a list to the venue.
@@ -23,5 +32,6 @@ As a Bride/Groom
 I want to show the weather with a smiley face for sunny or a sad face for rain
 So that people can be approprietly dressed for the occasion.
 
-# Description
-A wedding RSVP form that my potential guests can accept or decline the invitation, add a plus one, make a choice for the food order, and if any food allergies. It will also show the weather for the wedding day, and a countdown for it.
+# Link to deployed webpage
+
+[Link to deployed webpage]()
