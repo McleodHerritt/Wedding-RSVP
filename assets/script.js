@@ -109,6 +109,30 @@ const countdownInterval = setInterval(function () {
 
 //local storage for issue #7
 
+//are you attending? 
+
+//Name input field 
+
+$(document).ready(function () {
+  var savedName = localStorage.getItem('userName'); //checking for name in local storage
+  if (savedName) {
+    $('#name').val(savedName); //name is found from local storage and displayed in the field 
+  }
+
+  $('#name').on('input', function() {  //event handler for "name" field
+    var name = $(this).val(); //get the name from the input field
+
+    if (name.trim() !== '') {
+      localStorage.setItem('userName', name); //save the name to local storage
+    }
+  });
+});
+
+
+
+
+
+//Yes/No radio buttons
 $('input[type="radio"]').change(function() {
   const selectedAttendance = $('input[name="attendance"]:checked').val();
   localStorage.setItem("attendance", selectedAttendance);
@@ -118,4 +142,27 @@ const savedAttendance = localStorage.getItem("attendance");
 if (savedAttendance) {
   $(`input[value="${savedAttendance}"]`).prop("checked", true);
 }
+
+//Do you have a guest? 
+
+
+//Yes/No radio buttons
+$('input[type="radio"]').change(function() {
+  const selectedGuest = $('input[name="plusOne"]:checked').val();
+  localStorage.setItem("plusOne", selectedGuest);
+});
+
+const savedGuest = localStorage.getItem("plusOne");
+if (savedGuest) {
+  $(`input[value="${savedGuest}"]`).prop("checked", true);
+}
+
+
+
+
+
+
+
+
+
 
