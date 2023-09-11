@@ -262,3 +262,4 @@ const foodSave = localStorage.getItem("foodItem");
 if (foodSave) {
   $(`input[value="${foodSave}"]`).prop("checked", true);
 }
+
