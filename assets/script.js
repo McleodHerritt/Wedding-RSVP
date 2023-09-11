@@ -102,15 +102,53 @@ function sendDataToEmail() {
 // TODO: add functionality for the food allergy display.
 let allergyRadioBtn = document.getElementsByName("allergies");
 let allergenInfoEl = document.getElementById("allergenInfo");
+let allergyTypeEl = document.getElementById("allergyType");
+let selectedFoodRadioBtn = document.getElementsByName("selectedFood");
+let foodChoiceEL = document.getElementById("foodChoice");
 
-function allergyWarning() {
+function allergyWarning(event) {
+  event.preventDefault();
   if (allergyRadioBtn[0].checked) {
+    allergyTypeEl.style.display ='block';
     allergenInfoEl.textContent =
-      "Warning, the Vegetarian Lasagna contains healthy stuff that you're probably alergic to.";
+      "Warning, the Vegetarian Lasagna contains healthy stuff that you're probably allergic to.";
+    foodChoiceEL.textContent = "";
   } else if (allergyRadioBtn[1].checked) {
+    allergyTypeEl.style.display ='none';
     allergenInfoEl.textContent = "";
+    foodChoiceEL.textContent = "";
   }
 }
+
+for (let i = 0; i < allergyRadioBtn.length; i++) {
+  allergyRadioBtn[i].addEventListener("change", allergyWarning);
+}
+// TODO: add functionality of food selection.
+
+function foodSelection(event) {
+  event.preventDefault();
+  if (!allergyRadioBtn[0].checked && !allergyRadioBtn[1].checked) {
+    foodChoiceEL.textContent = "Please inform us wether or not you have a food allergy.";
+    for (let k = 0; k < selectedFoodRadioBtn.length; k++) {
+      selectedFoodRadioBtn[k].checked = false;
+    }
+    return;
+  }
+  if (selectedFoodRadioBtn[0].checked) {
+    foodChoiceEL.textContent = "You have selected Chicken, it's finger lickin' good!";
+  } else if (selectedFoodRadioBtn[1].checked) {
+    foodChoiceEL.textContent = "You have selected Beef, make sure that you dodge the cow the frenchman is hurtling towards you!";
+  } else if (selectedFoodRadioBtn[2].checked) {
+    foodChoiceEL.textContent = "You have selected Vegetarian Lasagna, you can now fight Bowser!";
+  } else {
+    foodChoiceEL.textContent = "";
+  }
+}
+
+for (let j = 0; j < selectedFoodRadioBtn.length; j++) {
+  selectedFoodRadioBtn[j].addEventListener("change", foodSelection);
+}
+
 //Countdown
 
 const targetDate = new Date("2024-05-03T23:00:00").getTime();

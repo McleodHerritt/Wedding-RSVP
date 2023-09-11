@@ -149,6 +149,10 @@ legend {
   max-width: fit-content;
 }
 
+#allergyType {
+  display: none;
+}
+
 /* Adding a hover effect to the submit button for better user feedback */
 
 .submit:hover {
