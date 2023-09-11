@@ -3,11 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
 /* Global styles */
-/* Defining custom color variables for consistent theming */
+/* Resetting default margin and padding for all elements */
+
 * {
   margin: 0;
   padding: 0;
 }
+
+/* Defining custom color variables for consistent theming */
 
 :root {
   --rose-quartz: hsla(261, 9%, 69%, 1);
@@ -16,7 +19,7 @@
   --accent: var(--rose-quartz);
 }
 
-/* Setting global font styles for the body */
+/* Setting global font and background styles for the body */
 
 body {
   font-family: "Lora", serif;
@@ -28,7 +31,8 @@ body {
     saturate(0.9);
   height: 100vh;
 }
-/* Styling the header with flexbox and setting its font */
+
+/* Styling the header with flexbox, setting its font and background color */
 
 header {
   display: flex;
@@ -39,7 +43,7 @@ header {
   background-color: var(--accent);
 }
 
-/* Styling the title with a double border and custom color */
+/* Styling the title with padding, alignment, color, and shadow */
 
 .title {
   padding: 0.5em;
@@ -57,12 +61,14 @@ header {
   font-style: italic;
 }
 
-/* Setting color for h2 elements */
+/* Setting color and shadow for h2 elements */
 
 h2 {
   color: white;
   text-shadow: 2px 2px 4px black;
 }
+
+/* Styling the form container with flexbox */
 
 .formContainer {
   display: flex;
@@ -73,11 +79,16 @@ h2 {
   margin: 1em;
 }
 
+/* Styling the form with flexbox */
+
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+/* Setting margin and padding for elements inside fieldset */
+
 fieldset > * {
   margin-bottom: 1em;
   padding: 0.25em;
@@ -97,27 +108,36 @@ fieldset > * {
   font-style: italic;
 }
 
+/* Overriding margin for .box */
+
 .box {
   margin: 0;
 }
+
+/* Adjusting direction and margin for .registrationForm */
+
 .registrationForm {
   margin: 1em;
   flex-direction: row;
   justify-content: center;
 }
-/* Setting a background color for fieldsets */
+
+/* Styling fieldsets with background color and shadow */
 
 fieldset {
   background-color: var(--accent);
   box-shadow: 0.25em 0.25em 10px black;
 }
 
+/* Styling legends with position and color */
+
 legend {
   position: relative;
   top: 10px;
   color: var(--outer-space);
 }
-/* Styling the submit button with custom colors and no border */
+
+/* Styling the submit button with custom colors, padding, and border */
 
 .submit {
   background-color: var(--rose-quartz);
@@ -150,6 +170,8 @@ legend {
 .countdown-container > * {
   margin: 0;
 }
+
+/* Setting color and font-size for .media-content */
 
 .media-content {
   color: white;
