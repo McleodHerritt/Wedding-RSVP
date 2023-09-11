@@ -153,6 +153,24 @@ $(document).ready(function () {
       localStorage.setItem("userName", name); //save the name to local storage
     }
   });
+
+  //only show the box if it is selected
+  $("#thankfullyNo").change(function () {
+    $("#allergyContainer").hide();
+  });
+
+  $("#deathlyYes").change(function () {
+    $("#allergyContainer").show();
+  });
+
+  //only show the the guest name container if user selected they are bringing a guest
+  $("#plusNo").change(function () {
+    $("#guestNameContainer").hide();
+  });
+
+  $("#plusYes").change(function () {
+    $("#guestNameContainer").show();
+  });
 });
 
 //Yes/No radio buttons
@@ -177,6 +195,7 @@ $('input[type="radio"]').change(function () {
 const savedGuest = localStorage.getItem("plusOne");
 if (savedGuest) {
   $(`input[value="${savedGuest}"]`).prop("checked", true);
+  $("#guestNameContainer").show();
 }
 
 //guest name
@@ -185,6 +204,11 @@ $(document).ready(function () {
   var guestName = localStorage.getItem("guestName");
   if (guestName) {
     $("#guestOne").val(guestName);
+    $("#guestNameContainer").show();
+    $('input[name="plusOne"]:checked').checked = true;
+  } else {
+    $("#guestNameContainer").hide();
+    $('input[name="plusOne"]:checked').checked = false;
   }
 
   $("#guestOne").on("input", function () {
