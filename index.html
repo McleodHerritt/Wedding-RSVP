@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Custom stylesheet for the website -->
-    
+
     <link rel="stylesheet" href="./assets/style.css" />
 
     <title>Wedding RSVP</title>
@@ -14,42 +14,38 @@
     <header>
       <h1 class="title">Wedding RSVP</h1>
 
-       <!--Countdown container-->
+      <!--Countdown container-->
 
-  <div class="countdown-container">
-    <h4 id="countdown">The countdown is on!</h4>
-      <h5 id="wedding-date">May 3rd, 2024</h5>
-      <p id="countdown-timer"></p>
-    </div>
-  
+      <div class="countdown-container">
+        <h4 id="countdown">The countdown is on!</h4>
+        <h5 id="wedding-date">May 3rd, 2024</h5>
+        <p id="countdown-timer"></p>
+      </div>
     </header>
     <main class="section is-medium">
-
-        <!-- Container for the registration form -->
+      <!-- Container for the registration form -->
 
       <div class="registrationForm">
-
-            <!-- Heading for the form -->
+        <!-- Heading for the form -->
 
         <h2>Attending?</h2>
 
-            <!-- Beginning of the RSVP form -->
+        <!-- Beginning of the RSVP form -->
 
         <form>
-
-                <!-- Fieldset for collecting attendee's name and attendance status -->
+          <!-- Fieldset for collecting attendee's name and attendance status -->
 
           <fieldset>
-                    <!-- Label and input field for attendee's name -->
+            <!-- Label and input field for attendee's name -->
 
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required />
 
-        <!-- Question asking if the attendee is coming -->
+            <!-- Question asking if the attendee is coming -->
 
             <legend>Are you attending?</legend>
             <div>
-                        <!-- Option for 'Yes' response -->
+              <!-- Option for 'Yes' response -->
 
               <label for="Yes">Yes</label>
               <input
@@ -60,7 +56,7 @@
                 required
               />
 
-          <!-- Option for 'No' response -->
+              <!-- Option for 'No' response -->
 
               <label for="No">No:</label>
               <input
@@ -73,118 +69,113 @@
             </div>
           </fieldset>
 
-      <!-- Fieldset for collecting guest information -->
+          <!-- Fieldset for collecting guest information -->
 
           <fieldset>
-
-                    <!-- Question asking if the attendee is bringing a guest -->
+            <!-- Question asking if the attendee is bringing a guest -->
 
             <legend>Do you have a guest?</legend>
             <div>
-
-                        <!-- Option for 'Yes' response -->
+              <!-- Option for 'Yes' response -->
 
               <label for="plusYes">Yes</label>
               <input
                 type="radio"
                 id="plusYes"
                 name="plusOne"
-                value="Yes"
+                value="plusYes"
                 required
               />
 
-          <!-- Option for 'No' response -->
+              <!-- Option for 'No' response -->
 
               <label for="plusNo">No</label>
               <input
                 type="radio"
                 id="plusNo"
                 name="plusOne"
-                value="No"
+                value="plusNo"
                 required
               />
             </div>
-            
-                    <!-- Label and input field for guest's name -->
+
+            <!-- Label and input field for guest's name -->
 
             <label for="guestOne">Guest Name:</label>
             <input type="text" id="guestOne" name="guestOne" required />
           </fieldset>
-        
-      
-      <div class="foodOptions">
-        <h2>Food Options</h2>
-        
-          <fieldset>
-            <legend>Do you have food allergies?</legend>
-            <div>
-              <label for="deathlyYes">Yes</label>
-              <input
-                type="radio"
-                id="deathlyYes"
-                name="allergies"
-                value="deathlyYes"
-                required
-              />
-              
-              <label for="thankfullyNo">No</label>
-              <input
-                type="radio"
-                id="thankfullyNo"
-                name="allergies"
-                value="thankfullyNo"
-                required
+
+          <div class="foodOptions">
+            <h2>Food Options</h2>
+
+            <fieldset>
+              <legend>Do you have food allergies?</legend>
+              <div>
+                <label for="deathlyYes">Yes</label>
+                <input
+                  type="radio"
+                  id="deathlyYes"
+                  name="allergies"
+                  value="deathlyYes"
+                  required
                 />
-               
-              
-              <input type="text" id="deathlyYes" name="deathlyYes" required />
-              
-            </div>
-          </fieldset>
-    
-       
 
-       
-          <fieldset>
-            <legend>Select a food option</legend>
-            <div>
-              <input
-                type="radio"
-                id="chicken"
-                name="selectedFood"
-                value="chicken"
-                required
-              />
-              <label for="chicken">Chicken</label>
+                <label for="thankfullyNo">No</label>
+                <input
+                  type="radio"
+                  id="thankfullyNo"
+                  name="allergies"
+                  value="thankfullyNo"
+                  required
+                />
 
-              <input
-                type="radio"
-                id="beef"
-                name="selectedFood"
-                value="beef"
-                required
-              />
-              <label for="beef">Beef</label>
+                <input
+                  type="text"
+                  id="allergyType"
+                  name="allergyType"
+                  required
+                />
 
-              <input
-                type="radio"
-                id="vegetarian"
-                name="selectedFood"
-                value="vegetarian"
-                required
-              />
-              <label for="vegetarian">Vegetarian Lasagna</label>
-            </div>
-          </fieldset>
-        
+                <p id="allergenInfo"></p>
+              </div>
+            </fieldset>
 
-          
-     
-      
-        <button class="submit" type="submit">Submit</button>
-       
-      </form>
+            <fieldset>
+              <legend>Select a food option</legend>
+              <div>
+                <input
+                  type="radio"
+                  id="chicken"
+                  name="selectedFood"
+                  value="chicken"
+                  required
+                />
+                <label for="chicken">Chicken</label>
 
+                <input
+                  type="radio"
+                  id="beef"
+                  name="selectedFood"
+                  value="beef"
+                  required
+                />
+                <label for="beef">Beef</label>
+
+                <input
+                  type="radio"
+                  id="vegetarian"
+                  name="selectedFood"
+                  value="vegetarian"
+                  required
+                />
+                <label for="vegetarian">Vegetarian Lasagna</label>
+              </div>
+            </fieldset>
+          </div>
+
+          <button class="submit" type="submit">Submit</button>
+        </form>
+      </div>
       <div class="box">
         <article class="media">
           <figure class="media-left">
@@ -201,7 +192,10 @@
         </article>
       </div>
     </main>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.emailjs.com/dist/email.min.js"
+    ></script>
     <script src="./assets/Weather.js"></script>
     <script src="./assets/script.js"></script>
   </body>
