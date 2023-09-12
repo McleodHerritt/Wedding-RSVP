@@ -113,7 +113,7 @@ function allergyWarning(event) {
   if (allergyRadioBtn[0].checked) {
     allergyTypeEl.style.display ='block';
     allergenInfoEl.textContent =
-      "Warning, the Vegetarian Lasagna contains healthy stuff that you're probably allergic to.";
+      "Please write down your food allergy in provided text box.";
     foodChoiceEL.textContent = "";
   } else if (allergyRadioBtn[1].checked) {
     allergyTypeEl.style.display ='none';
@@ -137,11 +137,11 @@ function foodSelection(event) {
     return;
   }
   if (selectedFoodRadioBtn[0].checked) {
-    foodChoiceEL.textContent = "You have selected Chicken, it's finger lickin' good!";
+    foodChoiceEL.textContent = "You have selected Chicken, included gravy is a gluten allergy.";
   } else if (selectedFoodRadioBtn[1].checked) {
-    foodChoiceEL.textContent = "You have selected Beef, make sure that you dodge the cow the frenchman is hurtling towards you!";
+    foodChoiceEL.textContent = "You have selected Beef, included gravy is a gluten allergy.";
   } else if (selectedFoodRadioBtn[2].checked) {
-    foodChoiceEL.textContent = "You have selected Vegetarian Lasagna, you can now fight Bowser!";
+    foodChoiceEL.textContent = "You have selected Vegetarian Lasagna, lactose intolerence warning, contains cheese.";
   } else {
     foodChoiceEL.textContent = "";
   }
