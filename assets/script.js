@@ -20,6 +20,9 @@ var data = {
   foodAllergy: false,
   typeOfAllergy: "",
   foodOption: "",
+  foodAllergy: false,
+  typeOfAllergy: "",
+  foodOption: "",
 };
 
 // Function to handle the form submission
@@ -111,12 +114,12 @@ let foodChoiceEL = document.getElementById("foodChoice");
 function allergyWarning(event) {
   event.preventDefault();
   if (allergyRadioBtn[0].checked) {
-    allergyTypeEl.style.display ='block';
+    allergyTypeEl.style.display = "block";
     allergenInfoEl.textContent =
       "Please write down your food allergy in provided text box.";
     foodChoiceEL.textContent = "";
   } else if (allergyRadioBtn[1].checked) {
-    allergyTypeEl.style.display ='none';
+    allergyTypeEl.style.display = "none";
     allergenInfoEl.textContent = "";
     foodChoiceEL.textContent = "";
   }
@@ -130,18 +133,22 @@ for (let i = 0; i < allergyRadioBtn.length; i++) {
 function foodSelection(event) {
   event.preventDefault();
   if (!allergyRadioBtn[0].checked && !allergyRadioBtn[1].checked) {
-    foodChoiceEL.textContent = "Please inform us wether or not you have a food allergy.";
+    foodChoiceEL.textContent =
+      "Please inform us wether or not you have a food allergy.";
     for (let k = 0; k < selectedFoodRadioBtn.length; k++) {
       selectedFoodRadioBtn[k].checked = false;
     }
     return;
   }
   if (selectedFoodRadioBtn[0].checked) {
-    foodChoiceEL.textContent = "You have selected Chicken, included gravy is a gluten allergy.";
+    foodChoiceEL.textContent =
+      "You have selected Chicken, included gravy is a gluten allergy.";
   } else if (selectedFoodRadioBtn[1].checked) {
-    foodChoiceEL.textContent = "You have selected Beef, included gravy is a gluten allergy.";
+    foodChoiceEL.textContent =
+      "You have selected Beef, included gravy is a gluten allergy.";
   } else if (selectedFoodRadioBtn[2].checked) {
-    foodChoiceEL.textContent = "You have selected Vegetarian Lasagna, lactose intolerence warning, contains cheese.";
+    foodChoiceEL.textContent =
+      "You have selected Vegetarian Lasagna, lactose intolerence warning, contains cheese.";
   } else {
     foodChoiceEL.textContent = "";
   }
@@ -180,6 +187,9 @@ const countdownInterval = setInterval(function () {
 //Name input field
 
 $(document).ready(function () {
+  document.getElementById("guestOne").removeAttribute("required"); //removed the required attribute from the form elements
+  document.getElementById("allergyType").removeAttribute("required"); //removed the required attribute from the form element
+
   var savedName = localStorage.getItem("userName"); //checking for name in local storage
   if (savedName) {
     $("#name").val(savedName); //name is found from local storage and displayed in the field
@@ -303,40 +313,43 @@ if (foodSave) {
   $(`input[value="${foodSave}"]`).prop("checked", true);
 }
 
-
 // put date as project presenting date sept 13 2023
-const apiUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/halifax/2024-05-03/2024-05-03?unitGroup=metric&key=BUMR2N3BKDDBVH4CTGFEK2MHL&contentType=json";
+const apiUrl =
+  "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/halifax/2024-05-03/2024-05-03?unitGroup=metric&key=BUMR2N3BKDDBVH4CTGFEK2MHL&contentType=json";
 //Date set to wedding date
 async function getWeatherData() {
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
 
-        // consts to pull weather info
-        const cityName = data.resolvedAddress;
-        const temperature = data.days[0].temp;
-        const weatherDescription = data.days[0].conditions;
-        const requestedDate = data.days[0].datetime;
+    // consts to pull weather info
+    const cityName = data.resolvedAddress;
+    const temperature = data.days[0].temp;
+    const weatherDescription = data.days[0].conditions;
+    const requestedDate = data.days[0].datetime;
 
-        // Determine the emoji based on weather conditions sunny or clear = smiley else others are frowny
-        let emoji = "";
-        if (weatherDescription.includes("Sunny") || weatherDescription.includes("Clear")) {
-            emoji = "😄"; 
-        } else {
-            emoji = "😔"; 
-        }
+    // Determine the emoji based on weather conditions sunny or clear = smiley else others are frowny
+    let emoji = "";
+    if (
+      weatherDescription.includes("Sunny") ||
+      weatherDescription.includes("Clear")
+    ) {
+      emoji = "😄";
+    } else {
+      emoji = "😔";
+    }
 
-        // Display the weather for location, date, temp, condition
-        const weatherWidget = document.getElementById("weather-widget");
-        weatherWidget.innerHTML = `
+    // Display the weather for location, date, temp, condition
+    const weatherWidget = document.getElementById("weather-widget");
+    weatherWidget.innerHTML = `
             <h2>${cityName}</h2>
             <p>Save the Date: ${requestedDate}</p>
             <p>It will be: ${temperature}&#8451;</p>
             <p>Condition: ${weatherDescription} ${emoji}</p>
         `;
-    } catch (error) {
-        console.error("Error fetching weather data:", error);
-    }
+  } catch (error) {
+    console.error("Error fetching weather data:", error);
+  }
 }
 
 // Fetch and display weather data on page load
