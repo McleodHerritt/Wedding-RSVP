@@ -20,6 +20,9 @@ var data = {
   foodAllergy: false,
   typeOfAllergy: "",
   foodOption: "",
+  foodAllergy: false,
+  typeOfAllergy: "",
+  foodOption: "",
 };
 
 // Function to handle the form submission
@@ -74,10 +77,7 @@ function submitForm(event) {
 // Function to send the collected data as an email using EmailJS
 
 function sendDataToEmail() {
-  console.log(data.guestName);
-  console.log(data.attendance);
-  console.log(data.plusOne);
-  console.log(data.guestOne);
+  console.log(data);
 
   // Construct the email content using the collected data
 
